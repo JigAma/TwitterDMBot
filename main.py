@@ -8,6 +8,25 @@ auth = OAuth(
     token='YOUR TOKEN',
     token_secret='YOUR TOKEN SECRET'))
 
-Cp1Ami = 'C\'est pour un ami'
+
+
+print("Successfully collected last Direct Message")
+
+LastTweet="default"
+
+while True:
+	DM = t.direct_messages(count=200)
 	
+	for tweet in DM:
+		print(tweet["text"])
+		if tweet != LastTweet:
+			if  len(tweet["text"]<140:
+				t.statuses.update(status=tweet["text"])
+				LastTweet = tweet
+	print('Successfully tweeted:'+tweet["text"])
+	sleep(randint(1800,3600))
+	
+
+
+
 	
